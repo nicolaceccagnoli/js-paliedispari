@@ -7,11 +7,27 @@
     5) Dichiariamo chi ha vinto.
 
 */
+
 // Dichiaro una Variabile in cui inserisco il Bottone del Form
 
 const myButton = document.querySelector('button');
 console.log('myButton', myButton, typeof myButton);
 
-// Dichiaro una Variabile in cui inserisco l'input della Select "Pari o Dispari"
-const userEvenOdd = document.getElementById('even-odd');
-console.log('userEvenOdd', userEvenOdd, typeof userEvenOdd);
+// Creo l'evento Click sul bottone 
+myButton.addEventListener('click', function () {
+
+    console.log(myButton);
+
+    // Dichiaro una Variabile in cui inserisco l'input della Select "Pari o Dispari"
+    const userEvenOdd = (document.getElementById('even-odd').value);
+    console.log('userEvenOdd', userEvenOdd, typeof userEvenOdd);
+
+
+
+    // Dichiaro una Variabile in cui inserisco l'input della Select "Numeri"
+    const userNumber = parseInt(document.getElementById('user-number').value);
+    console.log('userNumber', userNumber, typeof userNumber);
+
+
+
+})
