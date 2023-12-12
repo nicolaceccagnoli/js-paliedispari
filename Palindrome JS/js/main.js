@@ -18,7 +18,9 @@ myButton.addEventListener('click', function() {
     const form = document.querySelector('form');
 
     // Creo l'evento per la sottomissione del Form
-    form.addEventListener('click', function(event) {
+    form.addEventListener('submit', function(event) {
+
+        event.preventDefault();
 
         // Dichiaro una Variabile in cui racchiudo l'input dell'utente
         const userWord = document.getElementById('user-word').value;
@@ -29,17 +31,36 @@ myButton.addEventListener('click', function() {
         const userReverse = inputReverse(userWord);
         console.log(userReverse);
 
+        const myContainer = document.querySelector('.container');
+
+        // Creo un elemento e lo "appendo" all'interno del contenitore 
+        const containerResult = document.createElement('div');
+        containerResult.classList.add('card-body', 'text-center','card', 'mt-3', 'w-25');
+
+        myContainer.append(containerResult)
+
+        console.log(containerResult);
+
+        let message = 0;
+
         if (userReverse == userWord) {
-            alert ('Bravo')
+
+            containerResult.classList.add('text-success');
+            message = 'Complimenti, hai trovato una parola palindroma!'
+            
         } else {
-            alert ('Hai sbagliato');
+            containerResult.classList.add('text-danger');
+            message = 'Sbagliato, prova ancora..'
+
         }
+
+        containerResult.innerHTML = message;
 
     });
 
-
-
 });
+
+
 /*
 
     2) Creare una funzione per capire se la parola inserita è palindroma.
