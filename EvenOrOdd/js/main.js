@@ -8,6 +8,9 @@
 
 */
 
+// 1) L'utente sceglie tra Pari o Dispari e seleziona un numero tra 1 e 5;
+
+
 // Dichiaro una Variabile in cui inserisco il Bottone del Form
 
 const myButton = document.querySelector('button');
@@ -22,12 +25,43 @@ myButton.addEventListener('click', function () {
     const userEvenOdd = (document.getElementById('even-odd').value);
     console.log('userEvenOdd', userEvenOdd, typeof userEvenOdd);
 
-
-
     // Dichiaro una Variabile in cui inserisco l'input della Select "Numeri"
     const userNumber = parseInt(document.getElementById('user-number').value);
     console.log('userNumber', userNumber, typeof userNumber);
 
+    // Dichiaro una Variabile che contiene il numero casuale del PC
+    const randomPcNumber = getRandomNumber(1, 5);
+
+    // 3) Sommiamo i due numeri;
+    const sum = userNumber + randomPcNumber;
+    
+    // 5) Dichiariamo chi ha vinto.
+    const winner = evenOdd(sum)
+    console.log('winner', winner, typeof winner);
+
+    if (winner == userEvenOdd) {
+        alert('Hai vinto!')
+    } else {
+        alert('Hai perso.');
+    }
 
 
 })
+// 2) Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione?? Non è necessario perchè so che i numeri saranno sempre compresi tra 1 e 5);
+function getRandomNumber(min, max) {
+
+    return Math.floor(Math.random() * (max - min + min) ) + min;
+
+    console.log('getRandomNumber', getRandomNumber, typeof getRandomNumber);
+
+}
+
+
+// Definisco una funzione per stabilire se la somma dei due numeri è pari o dispari;
+function evenOdd (n) {
+    if (n % 2 == 0) {
+        return('even');
+    }
+
+    return ('odd');
+}   
