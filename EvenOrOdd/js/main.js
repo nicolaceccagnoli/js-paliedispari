@@ -16,6 +16,8 @@
 const myButton = document.querySelector('button');
 console.log('myButton', myButton, typeof myButton);
 
+const containerResult = document.querySelector('.container-result');
+
 // Creo l'evento Click sul bottone 
 myButton.addEventListener('click', function () {
 
@@ -39,12 +41,26 @@ myButton.addEventListener('click', function () {
     const winner = evenOdd(sum)
     console.log('winner', winner, typeof winner);
 
-    if (winner == userEvenOdd) {
-        alert('Hai vinto!')
-    } else {
-        alert('Hai perso.');
-    }
+    let message;
 
+    if (winner == userEvenOdd) {
+
+        message = 'Hai Vinto!';
+
+        let styleClassSuccess = 'card-body' + ' text-center' + ' card' + ' mt-3'+ ' text-success';
+
+        // Creo un elemento e lo "appendo" all'interno del contenitore 
+        containerResult.innerHTML += (`<div class="${styleClassSuccess}"> ${message} </div>`);
+
+    } else {
+
+        message = 'Hai perso..';
+
+        let styleClassDanger = 'card-body' + ' text-center' + ' card' + ' mt-3'+ ' text-danger';
+
+        // Creo un elemento e lo "appendo" all'interno del contenitore 
+        containerResult.innerHTML += (`<div class="${styleClassDanger}"> ${message} </div>`);
+}
 
 })
 
@@ -58,6 +74,7 @@ function getRandomNumber(min, max) {
 
 // Definisco una funzione per stabilire se la somma dei due numeri è pari o dispari;
 function evenOdd (n) {
+
     if (n % 2 == 0) {
         return('even');
     }
