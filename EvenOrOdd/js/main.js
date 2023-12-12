@@ -47,6 +47,7 @@ myButton.addEventListener('click', function () {
 
 
 })
+
 // 2) Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione?? Non è necessario perchè so che i numeri saranno sempre compresi tra 1 e 5);
 function getRandomNumber(min, max) {
 
