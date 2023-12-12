@@ -9,10 +9,6 @@
 const myButton = document.querySelector('button');
 console.log('myButton', myButton, typeof myButton);
 
-// Creo l'evento click sul bottone 
-myButton.addEventListener('click', function() {
-
-    console.log(myButton);
 
     // Dichiaro una Variabile in cui racchiudo il Form
     const form = document.querySelector('form');
@@ -26,39 +22,33 @@ myButton.addEventListener('click', function() {
         const userWord = document.getElementById('user-word').value;
         console.log('userWord', userWord, typeof userWord);
 
-
         // Inizializzo una variabile con all'interno la funzione che abbia come argomento l'input dell'utente
         const userReverse = inputReverse(userWord);
         console.log(userReverse);
 
         const myContainer = document.querySelector('.container');
 
-        // Creo un elemento e lo "appendo" all'interno del contenitore 
-        const containerResult = document.createElement('div');
-        containerResult.classList.add('card-body', 'text-center','card', 'mt-3', 'w-25');
+        let message;
 
-        myContainer.append(containerResult)
+        if ((userReverse == userWord) && (userWord !== '')) {
+            message = 'Complimenti, hai trovato una parola palindroma!' 
 
-        console.log(containerResult);
+            let styleClassSuccess = 'card-body' + ' text-center' + ' card' + ' mt-3'+ ' w-25' + ' text-success';
 
-        let message = 0;
-
-        if (userReverse == userWord) {
-
-            containerResult.classList.add('text-success');
-            message = 'Complimenti, hai trovato una parola palindroma!'
+            // Creo un elemento e lo "appendo" all'interno del contenitore 
+            myContainer.innerHTML += (`<div class="${styleClassSuccess}"> ${message} </div>`);
             
         } else {
-            containerResult.classList.add('text-danger');
             message = 'Sbagliato, prova ancora..'
 
+            let styleClassDanger = 'card-body' + ' text-center' + ' card' + ' mt-3'+ ' w-25' + ' text-danger';
+
+            // Creo un elemento e lo "appendo" all'interno del contenitore 
+            myContainer.innerHTML += (`<div class="${styleClassDanger}"> ${message} </div>`);
+            
         }
 
-        containerResult.innerHTML = message;
-
-    });
-
-});
+        });
 
 
 /*
