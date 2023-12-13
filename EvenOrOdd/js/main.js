@@ -18,8 +18,10 @@ console.log('myButton', myButton, typeof myButton);
 
 const containerResult = document.querySelector('.container-result');
 
+const form = document.querySelector('form');
+
 // Creo l'evento Click sul bottone 
-myButton.addEventListener('click', function () {
+form.addEventListener('click', function () {
 
     console.log(myButton);
 
@@ -50,7 +52,7 @@ myButton.addEventListener('click', function () {
         let styleClassSuccess = 'card-body' + ' text-center' + ' card' + ' mt-3'+ ' text-success';
 
         // Creo un elemento e lo "appendo" all'interno del contenitore 
-        containerResult.innerHTML += (`<div class="${styleClassSuccess}"> ${message} </div>`);
+        containerResult.innerHTML = (`<div class="${styleClassSuccess}"> ${message} </div>`);
 
     } else {
 
@@ -59,7 +61,7 @@ myButton.addEventListener('click', function () {
         let styleClassDanger = 'card-body' + ' text-center' + ' card' + ' mt-3'+ ' text-danger';
 
         // Creo un elemento e lo "appendo" all'interno del contenitore 
-        containerResult.innerHTML += (`<div class="${styleClassDanger}"> ${message} </div>`);
+        containerResult.innerHTML = (`<div class="${styleClassDanger}"> ${message} </div>`);
 }
 
 })
